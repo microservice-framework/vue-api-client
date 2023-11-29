@@ -53,11 +53,15 @@ export default {
       client: false,
       timerApiClient: false,
       url: apiSettings.apiURL,
+      variables: {},
       accessToken: "",
       expireAt: 0,
       setAccessToken: function (setValue) {
         this.accessToken = setValue.accessToken;
         this.expireAt = setValue.expireAt;
+      },
+      setVariables: function(id, value){
+        this.variables[id] = value
       },
       testAccessToken: function (AccessToken, callback) {
         var client = new MicroserviceClient({

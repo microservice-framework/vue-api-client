@@ -1,6 +1,6 @@
 {
   "name": "@microservice-framework/vue-api-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vue3 $api responsive mfw client",
   "main": "index.js",
   "scripts": {
