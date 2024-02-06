@@ -1,4 +1,5 @@
 /*global MicroserviceClient*/
+import MicroserviceClient from '@microservice-framework/microservice-client'
 
 function getWatch() {
   return {
@@ -63,18 +64,13 @@ export default {
       setVariables: function(id, value){
         this.variables[id] = value
       },
-      testAccessToken: function (AccessToken, callback) {
+      testAccessToken: async function (AccessToken) {
         var client = new MicroserviceClient({
           URL: apiSettings.apiURL,
           accessToken: AccessToken,
           headers: { scope: "auth" },
         });
-        client.get("auth/" + AccessToken, function (err, handlerResponse) {
-          console.log(err, handlerResponse);
-          if (callback) {
-            callback(err, handlerResponse);
-          }
-        });
+        return await client.get("auth/" + AccessToken)
       },
     };
     if (apiSettings.methods) {
